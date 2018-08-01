@@ -21,15 +21,15 @@ var style = {
 };
 
 
-var card = elements.create('card', {style: style});
+var card = elements.create('card', { style: style });
 
 card.mount('#card-element');
 var form = document.getElementById('payment-form');
 
-form.addEventListener('submit', function(event) {
+form.addEventListener('submit', function (event) {
   event.preventDefault();
-  const amount = document.querySelector('#amount').value
-  stripe.createToken(card).then(function(result) {
+  const amount = document.querySelector('#amount').value;
+  stripe.createToken(card).then(function (result) {
     if (result.error) {
       var errorElement = document.getElementById('card-errors');
       errorElement.textContent = result.error.message;
